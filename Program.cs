@@ -3,61 +3,96 @@
 
 class Program
 {
+    static void Main1(string[] args)
+    {
+        for (int i = 0; i < 2000; i++)
+        {
+            if (Numtests.IsPrime(i))
+            {
+                Console.WriteLine(i + "is a prime number");
+            }
+        }
+        Console.ReadKey();
+    }
+
     static void Main(string[] args)
     {
-        Console.WriteLine("Enter hour, then minute, then how many minutes to advance.");
-        int hour = int.Parse(Console.ReadLine()), minute = int.Parse(Console.ReadLine()), k = int.Parse(Console.ReadLine());
-        Time test = new Time(hour,minute);
-        Console.Write("You entered:   ");
-        test.PrintTime();
-        for (int i = 0; i < k; i++)
+        Circle c1 = new Circle("red", 5);
+        Circle c2 = new Circle("Yellow", 7);
+        double c1Area = c1.Area();
+        double c2Area = c2.Area();
+        if (c1Area>c2Area)
         {
-            test.Increment();
+            c1.PrintColor();
         }
-        test.PrintTime();
+        else if (c2Area>c1Area)
+        {
+            c2.PrintColor();
+        }
+        else
+        {
+            Console.WriteLine("equal areas");
+        }
         Console.ReadKey();
     }
 }
 
 
-
-class Time
+class Numtests
 {
-    private int min;
-    private int hour;
-
-    public Time(int hour1, int min1)
+    public static bool IsDual(int num)
     {
-        min = min1; hour = hour1;
-    }
-
-    public void PrintTime()
-    {
-        Console.WriteLine(hour + ":" + min);
-    }
-
-    public bool IsSchoolTime()
-    {
-        if (hour >= 8 && hour <= 16) return true; else return false;
-    }
-
-    public void Increment()
-    {
-        if (min==59)
+        if (num < 100 && num >= 10)
         {
-            min = 0;
-            if (hour == 23)
-            {
-                hour = 0;
-            }
-            else
-            {
-                hour++;
-            }
+            return true;
         }
         else
         {
-            min++;
+            return false;
         }
     }
+
+    public static bool ProBSum(int a, int b)
+    {
+        int sum = a + b, product = a * b;
+        if (product > sum)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static int SumDigits(int num)
+    {
+        int sumDigits = 0;
+        while (num != 0)
+        {
+            int dig = num % 10;
+            sumDigits = sumDigits + dig;
+            num = num / 10;
+        }
+        return sumDigits;
+    }
+
+
+    public static bool IsPrime(int num)
+    {
+        bool isPrime = true;
+        for (int i = 2; i <= Math.Sqrt(num); i++)
+        {
+            if (num % i == 0)
+            {
+                isPrime = false;
+            }
+        }
+        if (num<2)
+        {
+            isPrime = false;
+        }
+        return isPrime;
+    }
 }
+
