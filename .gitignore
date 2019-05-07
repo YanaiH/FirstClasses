@@ -2,7 +2,11 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/ClassesGit/.vs/ClassesGit/v16
-/ClassesGit/ClassesGit/bin/Debug/netcoreapp2.1
-/ClassesGit/ClassesGit/obj/Debug/netcoreapp2.1
-/ClassesGit/ClassesGit/obj
+/**/.vs/**/v16
+/**/**/bin/Debug/netcoreapp2.1
+/**/**/obj/Debug/netcoreapp2.1
+/**/**/obj
+*.dtbcache
+*.exe
+*.config
+*.pdb
