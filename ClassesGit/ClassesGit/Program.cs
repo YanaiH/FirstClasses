@@ -13,9 +13,10 @@ class Program
             }
         }
         Console.ReadKey();
+
     }
 
-    static void Main(string[] args)
+    static void Main2(string[] args)
     {
         Circle c1 = new Circle("red", 5);
         Circle c2 = new Circle("Yellow", 7);
@@ -33,6 +34,27 @@ class Program
         {
             Console.WriteLine("equal areas");
         }
+        Console.ReadKey();
+    }
+
+    static void Main(string[] args)
+    {
+        //DiceGame
+        Die d1 = new Die();
+        Die d2 = new Die();
+        int turnCount = 1;
+        int num1 = d1.GetNum();
+        int num2 = d2.GetNum();
+        while (num1 != 6 || num2 != 6)
+        {
+            d1.Roll();
+            d2.Roll();
+            num1 = d1.GetNum();
+            num2 = d2.GetNum();
+            Console.WriteLine(num1 + " , " + num2);
+            turnCount++;
+        }
+        Console.WriteLine($"It took {turnCount} turns to get to 6 , 6.");
         Console.ReadKey();
     }
 }
