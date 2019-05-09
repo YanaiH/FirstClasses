@@ -5,6 +5,7 @@ class Program
 {
     static void Main1(string[] args)
     {
+        //just playing with my first practice
         for (int i = 0; i < 2000; i++)
         {
             if (Numtests.IsPrime(i))
@@ -18,6 +19,7 @@ class Program
 
     static void Main2(string[] args)
     {
+        //circles
         Circle c1 = new Circle("red", 5);
         Circle c2 = new Circle("Yellow", 7);
         double c1Area = c1.Area();
@@ -37,7 +39,7 @@ class Program
         Console.ReadKey();
     }
 
-    static void Main(string[] args)
+    static void Main3(string[] args)
     {
         //DiceGame
         Die d1 = new Die();
@@ -55,6 +57,43 @@ class Program
             turnCount++;
         }
         Console.WriteLine($"It took {turnCount} turns to get to 6 , 6.");
+        Console.ReadKey();
+    }
+
+    static void Main(string[] args)
+    {
+        //driving teacher
+        Console.WriteLine("New student: Please enter ID number and minimal amount of lessons to take a test.");
+        string ID = Console.ReadLine();
+        int minlessons = int.Parse(Console.ReadLine());
+        Talmid firstTalmid = new Talmid(minlessons, ID);
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine("Week {0}/5: Enter amount of lessons this week, and then write 'yes' if went to test or 'no' if not.", i + 1);
+            int newLessons = int.Parse(Console.ReadLine());
+            string tookTest = Console.ReadLine();
+            firstTalmid.AddLessons(newLessons);
+            if (tookTest.ToLower() == "yes")
+            {
+                firstTalmid.AddTest();
+            }
+        }
+        Console.WriteLine("Overall amount of lessons: " + firstTalmid.GetNumLessons());
+        if (firstTalmid.GetNumLessons()>minlessons)
+        {
+            if (firstTalmid.IsWeakStudent())
+            {
+                Console.WriteLine("weak student.");
+            }
+            else
+            {
+                Console.WriteLine("not a weak student.");
+            }
+        }
+        else
+        {
+            Console.WriteLine(firstTalmid.LessonsLeftToTest() + " lessons left until test.");
+        }
         Console.ReadKey();
     }
 }
