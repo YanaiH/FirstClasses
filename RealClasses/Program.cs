@@ -5,6 +5,7 @@ class Program
 {
     static void Main1(string[] args)
     {
+        //just playing with my first practice
         for (int i = 0; i < 2000; i++)
         {
             if (Numtests.IsPrime(i))
@@ -18,6 +19,7 @@ class Program
 
     static void Main2(string[] args)
     {
+        //circles
         Circle c1 = new Circle("red", 5);
         Circle c2 = new Circle("Yellow", 7);
         double c1Area = c1.Area();
@@ -37,7 +39,7 @@ class Program
         Console.ReadKey();
     }
 
-    static void Main(string[] args)
+    static void Main3(string[] args)
     {
         //DiceGame
         Die d1 = new Die();
@@ -56,6 +58,12 @@ class Program
         }
         Console.WriteLine($"It took {turnCount} turns to get to 6 , 6.");
         Console.ReadKey();
+    }
+
+    static void Main(string[] args)
+    {
+        //driving teacher
+
     }
 }
 
