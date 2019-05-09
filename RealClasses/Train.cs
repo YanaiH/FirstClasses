@@ -71,5 +71,18 @@ class Train
             return false;
         }
     }
+
+    public int DoMaintenance()
+    {
+        int lastEngineDistance = engineDistance;
+        numOveralls++;
+        engineDistance = 0;
+        return lastEngineDistance;
+    }
+
+    public override string ToString()
+    {
+        return $"Train number: {trainNum} , Station name: {currentStation} ,Train distance: {totalDistance} , Current Engine Distance: {engineDistance} , Number of Overalls: {numOveralls} .";
+    }
 }
 
