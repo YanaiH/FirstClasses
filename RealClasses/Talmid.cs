@@ -5,24 +5,22 @@
 class Talmid
 {
     private string taz;
-    private int lessonsNum;
-    private int testsNum;
+    private int lessonsNum = 0;
+    private int testsNum = 0;
+    private int minLessonsForTest;
 
-    public Talmid(string taz, int lessonsNum, int testsNum)
+    public Talmid(int minLessonsForTest, string taz)
     {
+        if (minLessonsForTest>0)
+        {
+            this.minLessonsForTest = minLessonsForTest;
+        }
         if (taz.Length == 9)
         {
             this.taz = taz;
         }
-        if (lessonsNum >= 0)
-        {
-            this.lessonsNum = lessonsNum;
-        }
-        if (testsNum >= 0)
-        {
-            this.testsNum = testsNum;
-        }
     }
+
 
     public void AddLessons (int numNewLessons)
     {
@@ -37,12 +35,12 @@ class Talmid
         testsNum++;
     }
 
-    public int LessonsLeftToTest(int minLessonsForTest)
+    public int LessonsLeftToTest()
     {
         return minLessonsForTest - lessonsNum;
     }
 
-    public bool IsWeakStudent (int minLessonsForTest)
+    public bool IsWeakStudent()
     {
         if (lessonsNum-20>=minLessonsForTest && testsNum == 0)
         {
@@ -52,6 +50,16 @@ class Talmid
         {
             return false;
         }
+    }
+
+    public int GetNumTests()
+    {
+        return testsNum;
+    }
+
+    public int GetNumLessons()
+    {
+        return lessonsNum;
     }
 }
 

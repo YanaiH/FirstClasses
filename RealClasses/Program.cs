@@ -63,7 +63,38 @@ class Program
     static void Main(string[] args)
     {
         //driving teacher
-
+        Console.WriteLine("New student: Please enter ID number and minimal amount of lessons to take a test.");
+        string ID = Console.ReadLine();
+        int minlessons = int.Parse(Console.ReadLine());
+        Talmid firstTalmid = new Talmid(minlessons, ID);
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine("Week {0}/5: Enter amount of lessons this week, and then write 'yes' if went to test or 'no' if not.", i + 1);
+            int newLessons = int.Parse(Console.ReadLine());
+            string tookTest = Console.ReadLine();
+            firstTalmid.AddLessons(newLessons);
+            if (tookTest.ToLower() == "yes")
+            {
+                firstTalmid.AddTest();
+            }
+        }
+        Console.WriteLine("Overall amount of lessons: " + firstTalmid.GetNumLessons());
+        if (firstTalmid.GetNumLessons()>minlessons)
+        {
+            if (firstTalmid.IsWeakStudent())
+            {
+                Console.WriteLine("weak student.");
+            }
+            else
+            {
+                Console.WriteLine("not a weak student.");
+            }
+        }
+        else
+        {
+            Console.WriteLine(firstTalmid.LessonsLeftToTest() + " lessons left until test.");
+        }
+        Console.ReadKey();
     }
 }
 
