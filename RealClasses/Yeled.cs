@@ -24,6 +24,6 @@ class Yeled
 
     public string Adjective()
     {
-        return this.adjective;
+        return adjective;
     }
 }
