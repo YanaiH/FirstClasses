@@ -35,7 +35,7 @@ class Car
 
     public bool IsGood()
     {
-        if (numOldOwners == 1 && yearsOnRoad < 5 && YearlyAvg() < 10000)
+        if (numOldOwners == 1 && yearsOnRoad <= 5 && YearlyAvg() < 10000)
         {
             return true;
         }

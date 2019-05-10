@@ -3,7 +3,7 @@
 
 class Program
 {
-    static void Main1(string[] args)
+    static void Main1()
     {
         //just playing with my first practice
         for (int i = 0; i < 2000; i++)
@@ -60,7 +60,7 @@ class Program
         Console.ReadKey();
     }
 
-    static void Main(string[] args)
+    static void Main4(string[] args)
     {
         //driving teacher
         Console.WriteLine("New student: Please enter ID number and minimal amount of lessons to take a test.");
@@ -94,6 +94,17 @@ class Program
         {
             Console.WriteLine(firstTalmid.LessonsLeftToTest() + " lessons left until test.");
         }
+        Console.ReadKey();
+    }
+
+    static void Main()
+    {
+        //Car selling
+        int value1 = 45000, value2 = 72000, value3 = 30000;
+        Car toyota = new Car(2, value1, 4, 70000);
+        Car corvette = new Car(1,value2,3,20000);
+        Car fiat = new Car(4, value3, 7, 150000);
+        // I decided this Main is too brute for me so Im not going to write it.
         Console.ReadKey();
     }
 }
